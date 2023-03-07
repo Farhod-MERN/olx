@@ -20,6 +20,7 @@ const app = express();
 const varMiddleware = require("./middleware/var")
 const userMiddleware = require("./middleware/user")
 const flash = require("connect-flash")
+require('dotenv').config()
 const hbs = exphbs.create({
   defaultLayout: "main",
   extname: "hbs",
@@ -27,10 +28,11 @@ const hbs = exphbs.create({
   handlebars: allowInsecurePrototypeAccess(Handlebars)
 });
 
-const MONGO_URI = "mongodb+srv://farhod:2YNGQW6lZZpCs1CR@cluster0.m0bse57.mongodb.net/?retryWrites=true&w=majority";
+const {MONGODB_URI} = process.env.MONGODB_URI 
+
 const store = new MongoStore({
   collection: "sessions",
-  uri: MONGO_URI,
+  uri: process.env.MONGODB_URI,
 })
 app.use(flash())
 app.use(session({
@@ -71,7 +73,7 @@ async function starter (){
   try {
       mongoose.set("strictQuery", false);
       
-      await mongoose.connect(MONGO_URI, {
+      await mongoose.connect(process.env.MONGODB_URI, {
       useNewUrlParser: true
     });
     console.log("Mongo is connected");
@@ -88,9 +90,4 @@ async function starter (){
 
 starter()
 
-// 2YNGQW6lZZpCs1CR
-
-// mongodb+srv://farhod:2YNGQW6lZZpCs1CR@cluster0.m0bse57.mongodb.net/?retryWrites=true&w=majority
-//  cd /d/2_WEB/5_Express/myOlx
-// http://localhost:5000/products/63fcb89096301c850ca5d7b7/edit?allow=true
 
