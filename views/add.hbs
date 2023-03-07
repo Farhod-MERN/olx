@@ -1,4 +1,4 @@
-<form enctype="multipart/form-data" novalidate method="POST" action="/add"
+<form novalidate method="POST" action="/add"
   class="col-md-9 mx-auto row g-3 needs-validation my-5 myAddForm shadow p-3 mb-5 bg-body rounded">
   {{#if error}}
   <div class="col-12 text-center alert alert-danger alert-dismissible fade show" role="alert">
@@ -55,12 +55,9 @@
     </select>
   </div>
   <div class="col-md-8 form-group">
-    <label for="inputGroupFile02" class="form-label">Upload image</label>
-    <div class="custom-file">
-      <input name="image" type="file" class="custom-file-input" id="inputGroupFile02">
-      <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Upload image in
-        png, jpg or jpeg</label>
-    </div>
+    <label for="validationCustom05" class="form-label">Upload image</label>
+    <input value="{{data.image}}" type="text" name="image" class="form-control" placeholder="Upload image in png, jpg or jpeg"
+      id="validationCustom05">
   </div>
 
   <div class="col-md-8 form-group">

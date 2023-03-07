@@ -106,3 +106,12 @@ if ($card) {
     }
   });
 }
+
+
+const ap = "salom"
+
+if(ap.includes(".png" || ".jpg" || ".jpeg")){
+  console.log("yes");
+}else{
+  console.log("no");
+}

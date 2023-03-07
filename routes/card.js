@@ -16,7 +16,7 @@ function productPrice(products){
     }, 0)
 }
 
-router.post("/add", authMiddleware,async (req, res)=>{
+router.post("/add", authMiddleware, async (req, res)=>{
     const product = await Product.findById(req.body.id)
     await req.user.AddToCard(product)
     res.redirect("/card")
