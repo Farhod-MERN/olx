@@ -1,0 +1,116 @@
+<div class="mx-0 mx-sm-auto col-md-6 col-lg-6 p-2 myFeedback">
+  <div class="card">
+    <div class="card-header bg-primary">
+      <h5
+        class="card-title text-white mt-2 text-center"
+        id="exampleModalLabel"
+      >Your opinion matters</h5>
+    </div>
+    <div class="modal-body">
+      <div class="text-center">
+        <p class="mt-2">
+          Have some ideas how to improve our product?
+          <strong>Give us your feedback.</strong>
+        </p>
+      </div>
+
+      <hr />
+
+      <form class="px-4" action="/feedback" method="POST">
+        <p class="text-center"><strong>Your rating:</strong></p>
+
+        <div class="text-center mb-3">
+          <div class="d-inline mx-3">
+            Very Bad
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              required
+              type="radio"
+              name="mark"
+              id="inlineRadio1"
+              value="Very Bad"
+            />
+            <label class="form-check-label" for="inlineRadio1">1</label>
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              required
+              type="radio"
+              name="mark"
+              id="inlineRadio2"
+              value="Bad"
+            />
+            <label class="form-check-label" for="inlineRadio2">2</label>
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              required
+              type="radio"
+              name="mark"
+              id="inlineRadio3"
+              value="Medicore"
+            />
+            <label class="form-check-label" for="inlineRadio3">3</label>
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              required
+              type="radio"
+              name="mark"
+              id="inlineRadio4"
+              value="Good"
+            />
+            <label class="form-check-label" for="inlineRadio4">4</label>
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              required
+              type="radio"
+              name="mark"
+              id="inlineRadio5"
+              value="Excellent"
+            />
+            <label class="form-check-label" for="inlineRadio5">5</label>
+          </div>
+          <div class="d-inline me-4">
+            Excellent
+          </div>
+        </div>
+        <div class="form-outline my-3">
+          <input
+          type="text"
+            class="form-control"
+            id="form4Example3"
+            rows="4"
+            name="name"
+            placeholder="Your name , Please"
+            required
+          />
+        </div>
+        <div class="form-outline my-3">
+          <textarea
+            class="form-control"
+            id="form4Example3"
+            rows="4"
+            name="message"
+            placeholder="What could we improve ? "
+            required
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+        <a href="/feedback/read" type="submit" class="btn mb-2 text-primary">See more options</a>
+      </form>
+    </div>
+  </div>
+</div>

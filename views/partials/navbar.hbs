@@ -1,0 +1,100 @@
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="header__top__left">
+                            <ul class="mb-0">
+                                <li><i class="fa fa-envelope"></i> mern.uzb@gmail.com</li>
+                                <li>Free Shipping for all Order of $99</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="header__top__right">
+                            <div class="header__top__right__social">
+                                <a href="#"><i class="fa fa-github-square"></i></a>
+                                <a href="#"><i class="fa fa-linkedin-square"></i></a>
+                                <a href="#"><i class="fa fa-facebook-square"></i></a>
+                                <a href="#"><i class="fa fa-telegram"></i></a>
+                            </div>
+                            <div class="header__top__right__language">
+                                <img src="img/language.png" alt="">
+                                <div>English</div>
+                                <span class="arrow_carrot-down"></span>
+                                <ul>
+                                    <li><a href="#">English</a></li>
+                                    <li><a href="#">Uzbek</a></li>
+                                </ul>
+                            </div>
+                            <div class="header__top__right__language">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                                <div>{{userInfo.firstname}}</div>
+                                <span class="arrow_carrot-down"></span>
+                                <ul>
+                                    {{#if isAuth}}
+                                    <li><a href="/profile/{{userInfo._id}}">My Profile</a></li>
+                                    <li><a href="/auth/logout">Log out</a></li>
+                                    {{else}}
+                                    <li><a href="/auth/register">Register</a></li>
+                                    <li><a href="/auth/login">Login</a></li>
+                                    {{/if}}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container border-bottom shadow rounded mb-3">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header__logo">
+                        <a href="/"><img style="height: 2.3rem;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/OLX_green_logo.svg/1200px-OLX_green_logo.svg.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <nav class="header__menu">
+                        <ul>
+                            {{#if isHome}}
+                            <li class="active"><a class="text-decoration-none" href="/">Home</a></li>
+                            {{else}}
+                            <li><a class="text-decoration-none" href="/">Home</a></li>
+                            {{/if}}
+                            {{#if isProduct}}    
+                            <li class="active"><a class="text-decoration-none" href="/products">Products</a></li>
+                            {{else}} 
+                            <li><a class="text-decoration-none" href="/products">Products</a></li>
+                            {{/if}}
+                            <li><a class="text-decoration-none" href="#">Pages</a>
+                                <ul class="header__menu__dropdown">
+                                    <li><a class="text-decoration-none" href="./shop-details.html">Shop Details</a></li>
+                                    <li><a class="text-decoration-none" href="./shoping-cart.html">Shoping Cart</a></li>
+                                    <li><a class="text-decoration-none" href="./checkout.html">Check Out</a></li>
+                                    <li><a class="text-decoration-none" href="./blog-details.html">Blog Details</a></li>
+                                </ul>
+                            </li>
+                            {{#if isAdd}}
+                                <li class="active"><a class="text-decoration-none" href="/add">Create</a></li>
+                            {{else}}
+                            <li><a class="text-decoration-none" href="/add">Create</a></li>
+                            {{/if}}
+                            {{!-- <li><a class="text-decoration-none" href="/feedback">Feedback</a></li> --}}
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3">
+                    <div class="header__cart">
+                        <ul>
+                            <li><a href="/card"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                            <li><a href="/orders"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                        </ul>
+                        <div class="header__cart__price">item: <span>$150.00</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="humberger__open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </header>

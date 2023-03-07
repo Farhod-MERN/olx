@@ -1,0 +1,80 @@
+<div id="card" class="myBasket mx-auto mx-lg-g mx-1 col-md-10 col-lg-10">
+
+{{#if products.length}}
+    <div>
+      <h5 class="text-center my-3">Your Basket</h5>
+    </div>
+    <div class="">
+      <table class="table align-middle mb-0">
+        <thead class="bg-light">
+          <tr>
+            <th>Name</th>
+            <th>Count</th>
+            <th>$ Price</th>
+            <th>Inc</th>
+            <th>Dec</th>
+          </tr>
+        </thead>
+        <tbody>
+        {{#each products}}
+          <tr>
+            <td>
+              <div class="d-flex align-items-center">
+                <img
+                  src="{{image}}"
+                  alt=""
+                  style="width: 45px; height: 45px"
+                  class="rounded"
+                />
+                <div class="ms-3">
+                  <p class="fw-bold mb-1"><a href="/products/{{_id}}" class="text-decoration-none"/>{{name}}</a></p>
+                </div>
+              </div>
+            </td>
+            <td>
+              <p class="fw-normal mb-1">{{count}}</p>
+            </td>
+            <td>
+              <p class="fw-normal mb-1">{{price}}</p>
+            </td>
+            <td>
+                <form action="/card/add" method="POST">
+                <input type="hidden" name="id" value="{{_id}}">
+                <button type="submit" class="btn btn-link btn-sm btn-rounded text-decoration-none">
+                +
+              </button> 
+                </form>
+            </td>
+            <td><button type="button" data-id="{{_id}}" class="js-remove btn btn-link btn-sm btn-rounded text-decoration-none">
+                -
+              </button>
+            </td>
+          </tr>
+        {{/each}}
+        </tbody>
+      </table>
+      <form action="/orders" method="POST" class="mt-3">
+        <button type="submit" class="btn btn-primary">Order: <span class="price p-0 m-0">{{price}}</span></button>
+      </form>
+    </div>
+{{else}}
+  <div class="text-center">
+    <div class="container-fluid  mt-100">
+		 <div class="row">	 
+			<div class="col-md-12">
+				<div class="card mt-md-5 mt-lg-5" style="border: none;">
+						<div class="card-body cart">
+								<div class="col-sm-12 empty-cart-cls text-center">
+									<img src="https://i.imgur.com/dCdflKN.png" width="130" height="130" class="img-fluid mb-4 mr-3">
+									<h3><strong>Your Basket is Empty</strong></h3>
+									<h4>Add something to make me happy :)</h4>
+									<a href="/products" class="btn btn-primary cart-btn-transform m-3" data-abc="true">continue shopping</a>
+								</div>
+		  				</div>
+    				</div>
+					</div>
+				 </div>
+				</div>
+  </div>
+{{/if}}
+</div>

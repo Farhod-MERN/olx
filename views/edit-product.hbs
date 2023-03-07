@@ -1,0 +1,60 @@
+<form enctype="multipart/form-data" method="POST" action="/products/edit" class="col-md-8 mx-auto row g-3 needs-validation my-5 myAddForm shadow p-3 mb-5 bg-body rounded">
+  <h4 class="text-center mb-2">Edit Product: {{product.name}}</h4>
+  <div class="col-md-4">
+    <label for="validationCustom01" class="form-label">Product's Name</label>
+    <input type="text" name="name" class="form-control" id="validationCustom01" required = "true" placeholder="HP Laptop 15s" value="{{product.name}}">
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+  </div>
+  <div class="col-md-4">
+    <label for="validationCustom04" class="form-label">Quality</label>
+    <select name="quality" class="form-select" id="validationCustom04" required = "true" value="{{product.quality}}">
+      <option selected disabled >Quality...</option>
+      <option>Bad</option>
+      <option>Good</option>
+      <option>Perfect</option>
+      <option>New</option>
+    </select>
+  </div>
+  <div class="col-md-4">
+    <label for="validationCustomUsername" class="form-label">Price</label>
+    <div class="input-group has-validation">
+      <span class="input-group-text" id="inputGroupPrepend">$</span>
+      <input type="number" min="0" name="price" value="{{product.price}}" required="true" placeholder="1200" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required = "true">
+    </div>
+  </div>
+  <div class="col-md-8">
+    <label for="validationCustom05" class="form-label">Address</label>
+    <input type="text" name="address" value="{{product.address}}" class="form-control" placeholder="Fergana, Uzbekistan" id="validationCustom05" required = "true">
+  </div>
+  <div class="col-md-4">
+    <label for="validationCustom04" class="form-label">Category</label>
+    <select name="category" class="form-select" value="{{product.category}}" id="validationCustom04" required = "true">
+      <option selected disabled >Category...</option>
+      <option>Laptop</option>
+      <option>Phone</option>
+      <option>Equipment</option>
+      <option>Other</option>
+    </select>
+  </div>
+  <div class="col-md-12">
+   <label for="formFile" class="form-label">Upload image in png, jpg or jpeg</label>
+    <input required name="image" value="{{product.image}}" class="form-control" type="file" id="formFile">
+  </div>
+  <div class="col-md-8">
+    <label for="validationCustom03" class="form-label">Description</label>
+     <textarea class="form-control" name="description" placeholder="Describe your product ..." rows="6"  id="floatingTextarea2" required="true">{{product.description}}</textarea>
+  </div>
+  <div class="col-md-4">
+    <label for="validationCustom05" class="form-label">Tel</label>
+    <input type="tel" name="tel" class="form-control" value="{{product.tel}}" placeholder="+998 ** *** ** **" id="validationCustom05" required = "true">
+  </div>
+  <div class="col-12">
+    <input type="hidden" name="id" value="{{product._id}}" >
+    <button class="btn btn-primary" type="submit">Save Changes</button>
+    {{#ifeq product.userId._id @root.userId}}
+      <a class="btn btn-warning" href="/products/remove/{{product._id}}">Delete Product</a>
+    {{/ifeq}}
+  </div>
+</form>

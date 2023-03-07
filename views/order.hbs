@@ -1,0 +1,115 @@
+<section class="h-100 gradient-custom">
+  <div class="container py-3 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-10 col-xl-8">
+        <div class="card myOrderCard">
+          <div class="card-header px-4 py-5 bg-info">
+            {{#if orders.length}}
+            <h5 class="text-muted mb-0" style="font-weight: 400;">Thanks for your Order, <span style="color: #a8729a;font-weight: 700; text-transform: uppercase;"> {{user.firstname}}</span> !</hp>
+            {{else}}
+            <h5 class="text-muted mb-0">At the precent time you don't have any order, <span style="color: #a8729a;"> {{user.firstname}}</span> !</h5>
+            {{/if}}
+          </div>
+          <div class="card-body ">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <p class="lead fw-normal mb-0" style="color: #a8729a;">Receipt</p>
+              <p class="small text-muted mb-0">{{user.firstname}} : {{user.email}}</p>
+            </div>
+            
+            {{#if orders.length}}
+                {{#each orders}}
+                  <div class="card shadow-0 mb-4">
+                    {{#each products}}
+                      <div class="card-body border mb-3">
+                        <div class="row">
+                          <div class="col-md-2">
+                            <img src="{{product.image}}"
+                              class="img-fluid" alt="Phone">
+                          </div>
+                          <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                            <p class="text-muted mb-0">{{product.name}}</p>
+                          </div>
+                          <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                            <p class="text-muted mb-0 small">Category: {{product.category}}</p>
+                          </div>
+                          <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                            <p class="text-muted mb-0 small">Quality: {{product.quality}}</p>
+                          </div>
+                          <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                            <p class="text-muted mb-0 small">Count: ( x{{count}} )</p>
+                          </div>
+                          <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                            <p class="text-muted mb-0 small price">{{product.price}}</p>
+                          </div>
+                        </div>
+                        <hr class="mb-4" style="background-color: #e0e0e0; opacity: 1;">
+                        <div class="row d-flex align-items-center">
+                          
+                          <div class="col-md-12">
+                            <div class="progress" style="height: 6px; border-radius: 16px;">
+                              <div class="progress-bar" role="progressbar"
+                                style="width: 20%; border-radius: 16px; background-color: rgb(87, 87, 244);" aria-valuenow="20"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="d-flex justify-content-around mb-1">
+                              <p class="text-muted mt-1 mb-0 small ms-xl-5">Out for delivary</p>
+                              <p class="text-muted mt-1 mb-0 small ms-xl-5">Delivered</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+               {{/each}}
+            </div>
+            <div class="d-flex justify-content-between pt-2 px-2">
+              <p class="fw-bold mb-0">Order Details</p>
+              <p class="text-muted mb-0"><span class="fw-bold me-4">Total</span> <span class="price">{{price}}</span></p>
+            </div>
+
+            <div class="d-flex justify-content-between pt-2 px-2">
+              <p class="text-muted mb-0">Invoice Number : 788152</p>
+              <p class="text-muted mb-0"><span class="fw-bold me-4">Discount</span> $00.00</p>
+            </div>
+
+            <div class="d-flex justify-content-between px-2">
+              <p class="text-muted mb-0">Invoice Date : <span class="data">{{createdAt}}</span></p>
+              <p class="text-muted mb-0"><span class="fw-bold me-4">GST 0%</span> 00.00</p>
+            </div>
+
+            <div class="d-flex justify-content-between mb-5 px-2">
+              <p class="text-muted mb-0">Recepits Voucher : 18KU-62IIK</p>
+              <p class="text-muted mb-0"><span class="fw-bold me-4">Delivery Charges</span> Free</p>
+            </div>
+          </div>
+          <div class="card-footer border-0 px-4 py-2 bg-info">
+            <h5 class="d-flex align-items-center justify-content-end text-white text-uppercase mb-0">Total
+              paid: <span class="h2 mb-0 ms-2 price">{{price}}</span></h5>
+          </div>
+                {{/each}}
+            {{else}}
+                <div class="w-80 mx-auto text-center myAddForm">
+                  <div class="text-center">
+                  <div class="container-fluid  mt-100">
+                  <div class="row">	 
+                    <div class="col-md-12">
+                      <div class="card">
+                          <div class="card-body cart">
+                              <div class="col-sm-12 empty-cart-cls text-center">
+                                <img src="https://i.imgur.com/dCdflKN.png" width="130" height="130" class="img-fluid mb-4 mr-3">
+                                <h3><strong>There aren't any order</strong></h3>
+                                <h4>Order something to make me happy :)</h4>
+                                <a href="/products" class="btn btn-primary cart-btn-transform m-3" data-abc="true">Buy something</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+                </div>
+                </div>
+            {{/if}}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

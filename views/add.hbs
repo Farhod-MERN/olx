@@ -1,0 +1,79 @@
+<form enctype="multipart/form-data" novalidate method="POST" action="/add"
+  class="col-md-9 mx-auto row g-3 needs-validation my-5 myAddForm shadow p-3 mb-5 bg-body rounded">
+  {{#if error}}
+  <div class="col-12 text-center alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>Error !</strong> {{error}}.
+  </div>
+  {{else}}
+  <h4 class="col-12 text-center mb-2">Add Product</h4>
+  {{/if}}
+  {{#if addErr}}
+  <p>{{addErr}}</p>
+  {{/if}}
+  <div class="col-md-4 form-group">
+    <label for="validationCustom01" class="form-label">Product's Name</label>
+    <input value="{{data.name}}" type="text" name="name" class="form-control" id="validationCustom01" required="true"
+      placeholder="HP Laptop 15s">
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+  </div>
+  <div class="form-group col-md-4">
+    <label for="inputState">Quality</label>
+    <select id="inputState" class="form-control" name="quality">
+      <option selected>Choose...</option>
+      <option>...</option>
+      <option>...</option>
+      <option>...</option>
+      <option>...</option>
+      <option>...</option>
+    </select>
+  </div>
+  <div class="col-md-4 form-group">
+    <label for="validationCustomUsername" class="form-label">Price</label>
+    <div class="input-group has-validation">
+      <span class="input-group-text rounded-0" id="inputGroupPrepend">$</span>
+      <input value="{{data.price}}" type="number" min="0" name="price" required="true" placeholder="1200"
+        class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required="true">
+    </div>
+  </div>
+  <div class="col-md-8 form-group">
+    <label for="validationCustom05" class="form-label">Address</label>
+    <input value="{{data.address}}" type="text" name="address" class="form-control" placeholder="Fergana, Uzbekistan"
+      id="validationCustom05" required="true">
+  </div>
+  <div class="form-group col-md-4">
+    <label for="inputState">Category</label>
+    <select id="inputState" class="form-control" name="category">
+      <option selected>Choose...</option>
+      <option>...</option>
+      <option>...</option>
+      <option>...</option>
+      <option>...</option>
+      <option>...</option>
+      <option>...</option>
+    </select>
+  </div>
+  <div class="col-md-8 form-group">
+    <label for="inputGroupFile02" class="form-label">Upload image</label>
+    <div class="custom-file">
+      <input name="image" type="file" class="custom-file-input" id="inputGroupFile02">
+      <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Upload image in
+        png, jpg or jpeg</label>
+    </div>
+  </div>
+
+  <div class="col-md-8 form-group">
+    <label for="validationCustom03" class="form-label">Description</label>
+    <textarea class="form-control" name="description" placeholder="Describe your product ..." rows="6"
+      id="floatingTextarea2" required="true">{{data.description}}</textarea>
+  </div>
+  <div class="col-md-4 form-group">
+    <label for="validationCustom05" class="form-label">Tel</label>
+    <input value="{{data.tel}}" type="tel" name="tel" class="form-control" placeholder="+998 ** *** ** **"
+      id="validationCustom05" required="true">
+  </div>
+  <div class="col-12 form-group">
+    <button class="btn btn-primary" type="submit">Create Product</button>
+  </div>
+</form>

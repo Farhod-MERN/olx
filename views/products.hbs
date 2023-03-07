@@ -1,0 +1,107 @@
+<div class="container mx-auto row featured__filter">
+  <div class="row col-12 g-0 px-lg-5 px-md-5 mb-3">
+    <div class="col-6 col-sm-6 col-md-8">
+      <div class="btn-group">
+        <button
+          type="button"
+          class="btn btn-outline-primary dropdown-toggle"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Choose Category
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="/products">All</a></li>
+          <li><a class="dropdown-item" href="/products/laptop">Laptop</a></li>
+          <li><a class="dropdown-item" href="/products/phone">Phone</a></li>
+          <li><a
+              class="dropdown-item"
+              href="/products/equipment"
+            >Equipment</a></li>
+          <li><hr class="dropdown-divider" /></li>
+          <li><a class="dropdown-item" href="/products/other">Other</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-6 col-md-4">
+      <div class="input-group w-100">
+        <input
+          class="form-control border-end-0 border-primary rounded-pill"
+          type="search"
+          value=""
+          placeholder="Search by name..."
+          id="example-search-input"
+        />
+        <span class="input-group-append">
+          <button
+            class="mx-1 btn btn-outline-primary border-primary rounded-pill ms-n5"
+            type="button"
+          >
+            <i class="fa fa-search"></i>
+          </button>
+        </span>
+      </div>
+    </div>
+  </div>
+{{#if products.length}}
+  {{#each products}}
+    <div class="myproduct col-lg-3 col-md-4 col-sm-6 mix fastfood vegetables">
+    <div class="featured__item">
+      <div
+        class="featured__item__pic set-bg"
+        data-setbg="{{image}}"
+      >
+        <ul class="featured__item__pic__hover">
+          {{#ifeq userId._id @root.userId}}
+            {{#if @root.isAuth}}
+          <li><a href="/products/{{_id}}/edit?allow=true"><i class="fa fa-edit"></i></a></li>
+              {{else}}
+          <li><a href="/products/{{_id}}/edit?allow=false"><i class="fa fa-edit"></i></a></li>
+            {{/if}}
+          {{/ifeq}}
+          <li><a href="/products/{{_id}}"><i class="fa fa-info-circle"></i></a></li>
+          <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+        </ul>
+      </div>
+      <div class="featured__item__text">
+        <h6><a href="#">{{name}}</a></h6>
+        {{#if @root.isAuth}}
+           <form action="/card/add" method="POST">
+            <input type="hidden" name="id" value="{{_id}}" />
+            <button type="submit" class="btn btn-primary btn-sm mb-1"><span class="price">{{price}}</span></button>
+          </form>
+          {{else}}
+          <form action="/card/add" method="POST">
+            <input type="hidden" name="id" value="{{_id}}" />
+            <button disabled="true" type="submit" class="btn btn-primary btn-sm mb-1"><span
+                class="price">{{price}}</span></button>
+          </form>
+          {{/if}}
+      </div>
+    </div>
+  </div>
+  {{/each}}
+{{else}}
+<div class="w-80 mx-auto text-center">
+  <div class="text-center">
+    <div class="container-fluid mt-100">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card myAddForm">
+            <div class="card-body cart">
+              <div class="col-sm-12 empty-cart-cls text-center">
+                <img src="https://i.imgur.com/dCdflKN.png" width="130" height="130" class="img-fluid mb-4 mr-3" />
+                <h3><strong>There aren't any product</strong></h3>
+                <h4>Add something to make me happy :)</h4>
+                <a href="/add" class="btn btn-primary cart-btn-transform m-3" data-abc="true">Add something</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{/if}}
+
+</div>
